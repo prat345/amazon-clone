@@ -1,7 +1,6 @@
 import "./App.css";
 import HomePage from "./pages/HomePage.jsx";
 import ProductPage from "./pages/ProductPage.jsx";
-import data from "./data.js";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 function App() {
@@ -10,7 +9,7 @@ function App() {
       <div>
         <header>
           <Link to="/">amazon</Link>
-          <a href="/product">product</a>
+          <Link to="/product">product</Link>
         </header>
         <main>
           <Routes>

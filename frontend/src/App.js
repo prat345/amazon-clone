@@ -1,33 +1,25 @@
 import "./App.css";
+import HomePage from "./pages/HomePage.jsx";
+import ProductPage from "./pages/ProductPage.jsx";
 import data from "./data.js";
+import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <header>
-        <a href="/">amazon</a>
-        <a href="/product">product</a>
-      </header>
-      <main>
-        <h1>Featured Products</h1>
-        <div className="product-container">
-          {data.product.map((product) => (
-            <div className="product" key={product.slug}>
-              <a href={`product/${product.slug}`}>
-                <img src={product.image} alt={product.name} />
-              </a>
-              <div className="product-info">
-                <a href={`product/${product.slug}`}>
-                  <p>{product.name}</p>
-                </a>
-                <p>${product.price}</p>
-                <button>Add to cart</button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </main>
-    </div>
+    <BrowserRouter>
+      <div>
+        <header>
+          <Link to="/">amazon</Link>
+          <a href="/product">product</a>
+        </header>
+        <main>
+          <Routes>
+            <Route exact path="/" element={<HomePage />} />
+            <Route path="/product/:slug" element={<ProductPage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
   );
 }
 

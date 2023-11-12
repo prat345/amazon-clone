@@ -5,6 +5,8 @@ import axios from "axios";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
+import LoadingBox from "../components/LoadingBox";
+import MesssageBox from "../components/MesssageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -40,17 +42,26 @@ export default function HomePage() {
     };
     fetchData();
   }, []);
+
   return (
     <div>
       <h1>Featured Products</h1>
       <div className="product-container">
-        <Row>
-          {products.map((product) => (
-            <Col key={product.slug} sm={6} md={4} lg={3}>
-              <Product product={product}></Product>
-            </Col>
-          ))}
-        </Row>
+        {loading ? (
+          // <div>Loading...</div>
+          <LoadingBox />
+        ) : error ? (
+          // <div>{error}</div>
+          <MesssageBox variant="danger">{error}</MesssageBox>
+        ) : (
+          <Row>
+            {products.map((product) => (
+              <Col key={product.slug} sm={6} md={4} lg={3}>
+                <Product product={product}></Product>
+              </Col>
+            ))}
+          </Row>
+        )}
       </div>
     </div>
   );

@@ -22,7 +22,7 @@ function App() {
               <Link to="/product">product</Link> */}
         </header>
         <main>
-          <Container>
+          <Container className="mt-3">
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/product/:slug" element={<ProductPage />} />

@@ -45,3 +45,6 @@ img {
 .rating > * {
   color: #f0c040;
 }
+.img-large {
+  max-width: 100%;
+}

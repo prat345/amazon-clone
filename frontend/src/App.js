@@ -9,6 +9,7 @@ import Nav from "react-bootstrap/Nav";
 import Badge from "react-bootstrap/Badge";
 import { useContext } from "react";
 import { Store } from "./Store.js";
+import CartPage from "./pages/CartPage.jsx";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -47,6 +48,7 @@ function App() {
             <Routes>
               <Route exact path="/" element={<HomePage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
+              <Route path="/cart" element={<CartPage />} />
             </Routes>
           </Container>
         </main>

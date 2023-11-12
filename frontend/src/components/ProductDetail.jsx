@@ -8,13 +8,15 @@ import Badge from "react-bootstrap/Badge";
 import Button from "react-bootstrap/Button";
 import { Store } from "../Store";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function ProductDetail(props) {
+  const navigate = useNavigate();
   const { product } = props;
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { cart } = state;
   const addToCartHandler = async () => {
-    const existItem = cart.cartItems.find((x) => x._id === product._id);
+    const existItem = cart.cartItems.find((x) => x._id === product._id); // return item if in cart or return null
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
@@ -25,6 +27,7 @@ function ProductDetail(props) {
       type: "CART_ADD_ITEM",
       payload: { ...product, quantity },
     });
+    navigate("/cart");
   };
   return (
     <Row>

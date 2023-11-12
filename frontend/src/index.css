@@ -40,11 +40,19 @@ img {
 .btn-primary {
   background-color: #f0c040 !important;
   color: black !important;
-  border: 1px solid black !important;
+  border: none !important;
+}
+.btn-primary:hover {
+  background-color: #d7a10b !important;
+  color: black !important;
+  border: none !important;
 }
 .rating > * {
   color: #f0c040;
 }
 .img-large {
   max-width: 100%;
+}
+.img-thumbnail {
+  height: 80px;
 }

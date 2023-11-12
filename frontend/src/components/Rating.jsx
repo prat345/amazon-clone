@@ -7,6 +7,7 @@ export default function Rating(props) {
       <span>
         {/* Stars icon from font awesome
         cdn in public/index.html */}
+        {rating.toFixed(1) + " "}
         <i
           className={
             rating >= 1

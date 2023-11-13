@@ -45,7 +45,7 @@ export default function HomePage() {
 
   return (
     <div>
-      <h1>Featured Products</h1>
+      <h1 className="my-3">Featured Products</h1>
       <div className="product-container">
         {loading ? (
           // <div>Loading...</div>

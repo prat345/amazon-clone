@@ -10,6 +10,7 @@ import Badge from "react-bootstrap/Badge";
 import { useContext } from "react";
 import { Store } from "./Store.js";
 import CartPage from "./pages/CartPage.jsx";
+import SignInPage from "./pages/SignInPage.jsx";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -49,6 +50,7 @@ function App() {
               <Route exact path="/" element={<HomePage />} />
               <Route path="/product/:slug" element={<ProductPage />} />
               <Route path="/cart" element={<CartPage />} />
+              <Route path="/signin" element={<SignInPage />} />
             </Routes>
           </Container>
         </main>

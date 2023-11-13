@@ -13,8 +13,9 @@ import { useNavigate } from "react-router-dom";
 function ProductDetail(props) {
   const navigate = useNavigate();
   const { product } = props;
-  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const { state, dispatch: ctxDispatch } = useContext(Store); // import from Store
   const { cart } = state;
+
   const addToCartHandler = async () => {
     const existItem = cart.cartItems.find((x) => x._id === product._id); // return item if in cart or return null
     const quantity = existItem ? existItem.quantity + 1 : 1;

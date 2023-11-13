@@ -33,8 +33,8 @@ export default function HomePage() {
     const fetchData = async () => {
       dispatch({ type: "FETCH_REQUEST" }); // dispatch(action)
       try {
-        const result = await axios.get("/api/products"); // send ajax req to backend
-        dispatch({ type: "FETCH_SUCCESS", payload: result.data });
+        const result = await axios.get("/api/products"); // get product data from backend
+        dispatch({ type: "FETCH_SUCCESS", payload: result.data }); // send data to payload
       } catch (err) {
         dispatch({ type: "FETCH_FAIL", payload: err.message });
       }

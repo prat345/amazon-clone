@@ -5,14 +5,16 @@ export const Store = createContext();
 
 const initialState = {
   cart: {
-    cartItems: [],
+    // keep cart data on local, to prevent data reset when refresh
+    cartItems: localStorage.getItem("cartItems")
+      ? JSON.parse(localStorage.getItem("cartItems"))
+      : [],
   },
 };
 
 function reducer(state, action) {
   switch (action.type) {
     case "CART_ADD_ITEM":
-      // add to cart
       const newItem = action.payload;
       // check if cart already has same product type as newItem
       const existItem = state.cart.cartItems.find(
@@ -27,10 +29,16 @@ function reducer(state, action) {
             item._id === existItem._id ? newItem : item
           )
         : [...state.cart.cartItems, newItem];
-      return {
-        ...state,
-        cart: { ...state.cart, cartItems },
-      };
+      localStorage.setItem("cartItems", JSON.stringify(cartItems)); // store to local
+      return { ...state, cart: { ...state.cart, cartItems } };
+
+    case "CART_REMOVE_ITEM": {
+      const cartItems = state.cart.cartItems.filter(
+        (item) => item._id !== action.payload._id
+      );
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+      return { ...state, cart: { ...state.cart, cartItems } };
+    }
     default:
       return state;
   }

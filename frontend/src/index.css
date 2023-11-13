@@ -46,6 +46,7 @@ img {
   background-color: #d7a10b !important;
   color: black !important;
   border: none !important;
+  transition: 0.2s;
 }
 .rating > * {
   color: #f0c040;
@@ -54,5 +55,5 @@ img {
   max-width: 100%;
 }
 .img-thumbnail {
-  height: 80px;
+  max-width: 40% !important;
 }

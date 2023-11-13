@@ -12,7 +12,7 @@ export default function Rating(props) {
           className={
             rating >= 1
               ? "fas fa-star" // full star
-              : rating >= 0.5
+              : rating >= 0.3
               ? "fas fa-star-half-alt" // half star
               : "far fa-star" // empty star
           }
@@ -21,7 +21,7 @@ export default function Rating(props) {
           className={
             rating >= 2
               ? "fas fa-star"
-              : rating >= 1.5
+              : rating >= 1.3
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
@@ -30,7 +30,7 @@ export default function Rating(props) {
           className={
             rating >= 3
               ? "fas fa-star"
-              : rating >= 2.5
+              : rating >= 2.3
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
@@ -39,7 +39,7 @@ export default function Rating(props) {
           className={
             rating >= 4
               ? "fas fa-star"
-              : rating >= 3.5
+              : rating >= 3.3
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }
@@ -48,7 +48,7 @@ export default function Rating(props) {
           className={
             rating >= 5
               ? "fas fa-star"
-              : rating >= 4.5
+              : rating >= 4.3
               ? "fas fa-star-half-alt"
               : "far fa-star"
           }

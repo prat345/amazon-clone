@@ -1,13 +1,16 @@
 import express from "express";
 import Product from "../model/productModel.js";
 import data from "../data.js";
+import User from "../model/userModel.js";
 
 const seedRouter = express.Router();
 
 seedRouter.get("/", async (req, res) => {
   await Product.deleteMany({});
   const createProducts = await Product.insertMany(data.products);
-  res.send({ createProducts });
+  await User.deleteMany({});
+  const createUsers = await User.insertMany(data.users);
+  res.send({ createProducts, createUsers }); // http://localhost:5000/api/seed
 });
 
 export default seedRouter;

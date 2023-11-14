@@ -57,3 +57,15 @@ img {
 .img-thumbnail {
   max-width: 40% !important;
 }
+.small-container {
+  max-width: 600px !important;
+}
+
+.checkout-steps > div.active {
+  border-bottom: 0.2rem solid #f08000;
+  color: #f08000;
+}
+.checkout-steps > div {
+  border-bottom: 0.2rem solid #a0a0a066;
+  color: #a0a0a0;
+}

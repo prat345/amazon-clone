@@ -21,6 +21,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddressPage from "./pages/ShippingAddressPage.jsx";
+import SignUpPage from "./pages/SignUpPage.jsx";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -90,6 +91,7 @@ function App() {
               <Route path="/cart" element={<CartPage />} />
               <Route path="/shipping" element={<ShippingAddressPage />} />
               <Route path="/signin" element={<SignInPage />} />
+              <Route path="/signup" element={<SignUpPage />} />
             </Routes>
           </Container>
         </main>

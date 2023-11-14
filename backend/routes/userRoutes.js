@@ -6,6 +6,11 @@ import expressAsyncHandler from "express-async-handler";
 
 const userRouter = express.Router();
 
+userRouter.get("/", async (req, res) => {
+  const users = await User.find();
+  res.send(users);
+});
+
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -24,6 +29,26 @@ userRouter.post(
       }
     }
     res.status(401).send({ message: "Invalid email or password" });
+  })
+);
+
+userRouter.post(
+  "/signup",
+  expressAsyncHandler(async (req, res) => {
+    const newUser = new User({
+      name: req.body.name,
+      email: req.body.email,
+      password: bcrypt.hashSync(req.body.password),
+    });
+    const user = await newUser.save(); // save to db
+    // send to frontend
+    res.send({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+      token: generateToken(user),
+    });
   })
 );
 

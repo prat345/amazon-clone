@@ -9,7 +9,7 @@ requirement
 package.json > "type": "module"
 
 cd frontend
-npm i react-router-dom axios react-bootstrap bootstrap react-helmet-async
+npm i react-router-dom axios react-bootstrap bootstrap react-helmet-async express-async-handler
 
 cd backend
 npm i express mongoose dotenv

@@ -9,6 +9,7 @@ import Button from "react-bootstrap/Button";
 import { Store } from "../Store";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 function ProductDetail(props) {
   const navigate = useNavigate();
@@ -21,7 +22,7 @@ function ProductDetail(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Product out of stock");
+      toast.warn("Product out of stock");
       return;
     }
     ctxDispatch({

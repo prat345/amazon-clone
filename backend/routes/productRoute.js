@@ -4,12 +4,12 @@ import Product from "../model/productModel.js";
 const productRouter = express.Router();
 
 productRouter.get("/", async (req, res) => {
+  // root > api/product/
   const products = await Product.find();
   res.send(products);
 });
 
 productRouter.get("/slug/:slug", async (req, res) => {
-  // api/product/slug/:slug
   const product = await Product.findOne({ slug: req.params.slug });
   if (product) {
     res.send(product);
@@ -19,7 +19,6 @@ productRouter.get("/slug/:slug", async (req, res) => {
 });
 
 productRouter.get("/:id", async (req, res) => {
-  // api/product/:id
   const product = await Product.findById(req.params.id);
   if (product) {
     res.send(product);

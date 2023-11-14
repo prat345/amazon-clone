@@ -5,6 +5,7 @@ import Button from "react-bootstrap/Button";
 import Rating from "./Rating";
 import { Store } from "../Store";
 import axios from "axios";
+import { toast } from "react-toastify";
 
 // product display in HomePage
 export default function Product(props) {
@@ -19,7 +20,7 @@ export default function Product(props) {
     const quantity = existItem ? existItem.quantity + 1 : 1;
     const { data } = await axios.get(`/api/products/${item._id}`);
     if (data.countInStock < quantity) {
-      window.alert("Product out of stock");
+      toast.warn("Product out of stock");
       return;
     }
     ctxDispatch({

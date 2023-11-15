@@ -3,7 +3,7 @@ import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";
 import { Helmet } from "react-helmet-async";
 import { Store } from "../Store";
-import MessageBox from "../components/MesssageBox";
+import MessageBox from "../components/MessageBox";
 import Button from "react-bootstrap/Button";
 import ListGroup from "react-bootstrap/ListGroup";
 import { Link, useNavigate } from "react-router-dom";

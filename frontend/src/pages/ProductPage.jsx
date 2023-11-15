@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useReducer } from "react";
 import { useParams } from "react-router-dom";
 import LoadingBox from "../components/LoadingBox";
-import MesssageBox from "../components/MesssageBox";
+import MesssageBox from "../components/MessageBox";
 import { Helmet } from "react-helmet-async";
 import { getError } from "../utils";
 import ProductDetail from "../components/ProductDetail";

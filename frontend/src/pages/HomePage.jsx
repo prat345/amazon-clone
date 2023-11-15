@@ -6,7 +6,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "../components/Product";
 import LoadingBox from "../components/LoadingBox";
-import MesssageBox from "../components/MesssageBox";
+import MessageBox from "../components/MessageBox";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -52,7 +52,7 @@ export default function HomePage() {
           <LoadingBox />
         ) : error ? (
           // <div>{error}</div>
-          <MesssageBox variant="danger">{error}</MesssageBox>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (

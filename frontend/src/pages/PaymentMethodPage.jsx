@@ -42,22 +42,24 @@ export default function PaymentMethodPage() {
           <div className="mb-3">
             <Form.Check
               type="radio"
+              name="payment-method"
               id="paypal"
-              label="paypal"
+              label="Paypal"
               value="paypal"
               checked={paymentMethodName === "paypal"}
-              onChanged={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check>
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
           </div>
           <div className="mb-3">
             <Form.Check
               type="radio"
-              id="stripe"
-              label="stripe"
-              value="stripe"
-              checked={paymentMethodName === "stripe"}
-              onChanged={(e) => setPaymentMethod(e.target.value)}
-            ></Form.Check>
+              name="payment-method"
+              id="visa"
+              label="Visa"
+              value="visa"
+              checked={paymentMethodName === "visa"}
+              onChange={(e) => setPaymentMethod(e.target.value)}
+            />
           </div>
           <div className="mb-3">
             <Button type="submit">Continue</Button>

@@ -5,6 +5,7 @@ import dotenv from "dotenv";
 import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
+import orderRouter from "./routes/orderRoutes.js";
 
 dotenv.config();
 
@@ -25,6 +26,7 @@ app.use(express.urlencoded({ extended: true })); // convert input form to json
 app.use("/api/seed", seedRouter); // http://localhost:5000/api/seed
 app.use("/api/products", productRouter); // http://localhost:5000/api/products
 app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });

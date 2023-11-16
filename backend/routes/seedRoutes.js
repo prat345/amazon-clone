@@ -3,6 +3,7 @@ import Product from "../model/productModel.js";
 import data from "../data.js";
 import User from "../model/userModel.js";
 
+// create sample products
 const seedRouter = express.Router();
 
 seedRouter.get("/", async (req, res) => {

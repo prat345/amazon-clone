@@ -23,6 +23,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to json
 
+app.get("/api/keys/paypal", (req, res) => {
+  res.send(process.env.PAYPAL_CLIENT_ID || "sandbox");
+});
+
 app.use("/api/seed", seedRouter); // http://localhost:5000/api/seed
 app.use("/api/products", productRouter); // http://localhost:5000/api/products
 app.use("/api/users", userRouter);

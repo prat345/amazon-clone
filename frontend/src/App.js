@@ -8,16 +8,16 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
 import Container from "react-bootstrap/Container";
 import { LinkContainer } from "react-router-bootstrap";
-import Nav from "react-bootstrap/Nav";
 import Badge from "react-bootstrap/Badge";
 import { useContext } from "react";
 import { Store } from "./Store.js";
 import CartPage from "./pages/CartPage.jsx";
 import SignInPage from "./pages/SignInPage.jsx";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ShippingAddressPage from "./pages/ShippingAddressPage.jsx";
@@ -25,6 +25,7 @@ import SignUpPage from "./pages/SignUpPage.jsx";
 import PaymentMethodPage from "./pages/PaymentMethodPage.jsx";
 import PlaceOrderPage from "./pages/PlaceOrderPage.jsx";
 import OrderPage from "./pages/OrderPage.jsx";
+import OrderHistoryPage from "./pages/OrderHistoryPage.jsx";
 
 function App() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -42,47 +43,50 @@ function App() {
       <div className="d-flex flex-column site-container">
         <ToastContainer position="bottom-center" limit={1} />
         <header>
-          <Navbar bg="dark" variant="dark">
+          <Navbar bg="dark" variant="dark" expand="lg">
             <Container>
               <LinkContainer to="/">
                 <Navbar.Brand>Amazon</Navbar.Brand>
               </LinkContainer>
-              <Nav className="me-auto">
-                <Link to="/cart" className="nav-link">
-                  Cart
-                  {cart.cartItems.length > 0 && (
-                    <Badge pill bg="danger">
-                      {/* {cart.cartItems.length} */}
-                      {cart.cartItems.reduce(
-                        (accumulator, current) =>
-                          accumulator + current.quantity,
-                        0
-                      )}
-                    </Badge>
-                  )}
-                </Link>
-                {userInfo ? (
-                  <NavDropdown title={userInfo.name}>
-                    <LinkContainer to="/profile">
-                      <NavDropdown.Item>User Profile</NavDropdown.Item>
-                    </LinkContainer>
-                    <LinkContainer to="/orderhistory">
-                      <NavDropdown.Item>Order History</NavDropdown.Item>
-                    </LinkContainer>
-                    <Link
-                      className="dropdown-item"
-                      to="#signout"
-                      onClick={signOutHandler}
-                    >
-                      Sign Out
-                    </Link>
-                  </NavDropdown>
-                ) : (
-                  <Link className="nav-link" to="/signin">
-                    Sign In
+              <Navbar.Toggle aria-controls="basic-navbar-nav" />
+              <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto w-100 justify-content-end">
+                  <Link to="/cart" className="nav-link">
+                    Cart
+                    {cart.cartItems.length > 0 && (
+                      <Badge pill bg="danger">
+                        {/* {cart.cartItems.length} */}
+                        {cart.cartItems.reduce(
+                          (accumulator, current) =>
+                            accumulator + current.quantity,
+                          0
+                        )}
+                      </Badge>
+                    )}
                   </Link>
-                )}
-              </Nav>
+                  {userInfo ? (
+                    <NavDropdown title={userInfo.name}>
+                      <LinkContainer to="/profile">
+                        <NavDropdown.Item>User Profile</NavDropdown.Item>
+                      </LinkContainer>
+                      <LinkContainer to="/orderhistory">
+                        <NavDropdown.Item>Order History</NavDropdown.Item>
+                      </LinkContainer>
+                      <Link
+                        className="dropdown-item"
+                        to="#signout"
+                        onClick={signOutHandler}
+                      >
+                        Sign Out
+                      </Link>
+                    </NavDropdown>
+                  ) : (
+                    <Link className="nav-link" to="/signin">
+                      Sign In
+                    </Link>
+                  )}
+                </Nav>
+              </Navbar.Collapse>
             </Container>
           </Navbar>
           {/* <Link to="/">amazon</Link>
@@ -100,6 +104,7 @@ function App() {
               <Route path="/payment" element={<PaymentMethodPage />} />
               <Route path="/placeorder" element={<PlaceOrderPage />} />
               <Route path="/order/:id" element={<OrderPage />} />
+              <Route path="/orderhistory" element={<OrderHistoryPage />} />
             </Routes>
           </Container>
         </main>

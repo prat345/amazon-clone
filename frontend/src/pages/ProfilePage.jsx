@@ -23,20 +23,19 @@ const reducer = (state, action) => {
 export default function ProfilePage() {
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
+  console.log(userInfo);
   const [name, setName] = useState(userInfo.name);
   const [email, setEmail] = useState(userInfo.email);
-  const [password, setPassword] = useState(userInfo.password);
-  const [confirmPassword, setConfirmPassword] = useState(
-    userInfo.confirmPassword
-  );
+  const [oldPassword, setOldPassword] = useState(userInfo.password);
+  const [newPassword, setNewPassword] = useState(userInfo.confirmPassword);
   const [{ loadingUpdate }, dispatch] = useReducer(reducer, {
     loadingUpdate: false,
   });
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (password !== confirmPassword) {
-      toast.error("Password does not match!");
+    if (newPassword == oldPassword) {
+      toast.error("New password cannot be the same as current password");
       return;
     }
     try {
@@ -45,7 +44,7 @@ export default function ProfilePage() {
         {
           name,
           email,
-          password,
+          newPassword,
         },
         {
           headers: { authorization: `Bearer ${userInfo.token}` },
@@ -78,7 +77,7 @@ export default function ProfilePage() {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="name">
+        <Form.Group className="mb-3" controlId="email">
           <Form.Label>Email</Form.Label>
           <Form.Control
             type="email"
@@ -87,18 +86,19 @@ export default function ProfilePage() {
             required
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Password</Form.Label>
+        <Form.Group className="mb-3" controlId="old-password">
+          <Form.Label>Current Password</Form.Label>
           <Form.Control
             type="password"
-            onChange={(e) => setPassword(e.target.value)}
+            value={oldPassword}
+            onChange={(e) => setOldPassword(e.target.value)}
           />
         </Form.Group>
-        <Form.Group className="mb-3" controlId="password">
-          <Form.Label>Confirm Password</Form.Label>
+        <Form.Group className="mb-3" controlId="new-password">
+          <Form.Label>New Password</Form.Label>
           <Form.Control
             type="password"
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={(e) => setNewPassword(e.target.value)}
           />
         </Form.Group>
         <div className="mb-3">

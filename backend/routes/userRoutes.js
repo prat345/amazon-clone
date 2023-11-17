@@ -22,6 +22,7 @@ userRouter.post(
           _id: user._id,
           name: user.name,
           email: user.email,
+          password: req.body.password,
           isAdmin: user.isAdmin,
           token: generateToken(user),
         });
@@ -60,8 +61,8 @@ userRouter.put(
     if (user) {
       user.name = req.body.name || user.name;
       user.email = req.body.email || user.email;
-      if (req.body.password) {
-        user.password = bcrypt.hashSync(req.body.password, 8);
+      if (req.body.newPassword) {
+        user.password = bcrypt.hashSync(req.body.newPassword, 8);
       }
 
       const updatedUser = await user.save();
@@ -69,6 +70,7 @@ userRouter.put(
         _id: updatedUser._id,
         name: updatedUser.name,
         email: updatedUser.email,
+        // password: updatedUser.password,
         isAdmin: updatedUser.isAdmin,
         token: generateToken(updatedUser),
       });

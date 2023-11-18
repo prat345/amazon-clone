@@ -32,7 +32,9 @@ export default function Product(props) {
   return (
     <Card key={product.slug}>
       <Link to={`product/${product.slug}`}>
-        <img src={product.image} alt={product.name} />
+        <div className="img-container text-center">
+          <img src={product.image} alt={product.name} />
+        </div>
       </Link>
       <Card.Body>
         <Link className="product-name" to={`product/${product.slug}`}>
@@ -42,7 +44,12 @@ export default function Product(props) {
           rating={product.rating}
           numReviews={product.numReviews}
         ></Rating>
-        <Card.Text>${product.price}</Card.Text>
+        <Card.Text>
+          <span className="product-price">
+            <span>$</span>
+            <span class="text-large">{product.price}</span>
+          </span>
+        </Card.Text>
 
         {product.countInStock === 0 ? (
           <Button variant="light" disabled>

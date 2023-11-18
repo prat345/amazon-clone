@@ -53,7 +53,7 @@ function App() {
           </Routes>
         </Container>
       </main>
-      <footer>
+      <footer className="mt-5">
         <div className="text-center">All rights reserved</div>
       </footer>
     </BrowserRouter>

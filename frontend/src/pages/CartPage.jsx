@@ -10,6 +10,8 @@ import { Link, useNavigate } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import axios from "axios";
 
+const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
+
 export default function CartPage() {
   const navigate = useNavigate();
   const { state, dispatch: ctxDispatch } = useContext(Store);
@@ -43,7 +45,7 @@ export default function CartPage() {
       </Helmet>
       <h1 className="my-3">Shopping Cart</h1>
       <Row>
-        <Col md={8}>
+        <Col md={8} className="mb-3">
           {/* if cart is empty > show msg else show items */}
           {cartItems.length === 0 ? (
             <MessageBox>
@@ -54,13 +56,16 @@ export default function CartPage() {
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
                   <Row className="align-items-center">
-                    <Col md={4} className="d-flex">
-                      <img
-                        src={item.image}
-                        alt={item.name}
-                        className="img-fluid rounded img-thumbnail"
-                      ></img>
-                      &nbsp;&nbsp;&nbsp;&nbsp;
+                    <Col xs={3} className="justify-content-start">
+                      <div className="thumbnail-container">
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="img-fluid rounded img-thumbnail"
+                        ></img>
+                      </div>
+                    </Col>
+                    <Col xs={2}>
                       <Link
                         className="product-name my-auto"
                         to={`/product/${item.slug}`}
@@ -68,7 +73,8 @@ export default function CartPage() {
                         {item.name}
                       </Link>
                     </Col>
-                    <Col md={3}>
+
+                    <Col xs={3} className="text-center">
                       <Button
                         variant="light"
                         onClick={() =>
@@ -89,8 +95,10 @@ export default function CartPage() {
                         <i className="fas fa-plus-circle"></i>
                       </Button>{" "}
                     </Col>
-                    <Col md={3}>${item.price}</Col>
-                    <Col md={2}>
+                    <Col xs={2} className="text-center">
+                      ${item.price}
+                    </Col>
+                    <Col xs={2} className="text-center">
                       <Button
                         variant="light"
                         onClick={() => removeItemHandler(item)}
@@ -109,10 +117,15 @@ export default function CartPage() {
             <Card.Body>
               <ListGroup variant="flush">
                 <ListGroup.Item>
-                  <h3>
+                  <h5 className="mb-2">
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}{" "}
-                    items):{" "}
-                    {cartItems.reduce((a, c) => a + c.price * c.quantity, 0)}
+                    items):
+                  </h5>{" "}
+                  <h3>
+                    $
+                    {round2(
+                      cartItems.reduce((a, c) => a + c.price * c.quantity, 0)
+                    )}
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>

@@ -33,7 +33,7 @@ function ProductDetail(props) {
   };
   return (
     <Row>
-      <Col md={6}>
+      <Col md={6} className="text-center">
         <img className="img-large" src={product.image} alt={product.name}></img>
       </Col>
       <Col md={3}>

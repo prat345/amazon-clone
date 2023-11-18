@@ -14,6 +14,8 @@ import { PayPalButtons, usePayPalScriptReducer } from "@paypal/react-paypal-js";
 import { toast } from "react-toastify";
 import Button from "react-bootstrap/Button";
 
+const round2 = (num) => Math.round(num * 100 + Number.EPSILON) / 100;
+
 const reducer = (state, action) => {
   switch (action.type) {
     case "FETCH_REQUEST":
@@ -56,7 +58,7 @@ export default function OrderPage() {
   function createOrder(data, actions) {
     return actions.order
       .create({
-        purchase_units: [{ amount: { value: order.totalPrice } }],
+        purchase_units: [{ amount: { value: round2(order.totalPrice) } }],
       })
       .then((orderId) => {
         return orderId;
@@ -181,18 +183,24 @@ export default function OrderPage() {
                 {order.orderItems?.map((item) => (
                   <ListGroup.Item key={item._id}>
                     <Row className="align-items-center">
-                      <Col md={6}>
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="img-fluid rounded img-thumbnail"
-                        ></img>{" "}
-                        <Link to={`/product/${item.slug}`}>{item.name}</Link>
+                      <Col xs={4} className="justify-content-start">
+                        <div className="thumbnail-container">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="img-fluid rounded img-thumbnail"
+                          ></img>
+                        </div>
                       </Col>
-                      <Col md={3}>
-                        <span>{item.quantity}</span>
+                      <Col xs={4}>
+                        <Link
+                          className="product-name my-auto"
+                          to={`/product/${item.slug}`}
+                        >
+                          {item.name}
+                        </Link>
                       </Col>
-                      <Col md={3}>${item.price}</Col>
+                      <Col xs={4}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}

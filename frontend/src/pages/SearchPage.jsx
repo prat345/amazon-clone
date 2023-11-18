@@ -134,10 +134,10 @@ export default function SearchPage() {
         <title>Search Products</title>
       </Helmet>
       <BannerFreeShipping />
-      <Row>
-        <Col md={3} className="border-right">
-          <h4>Category</h4>
+      <Row className="home-container">
+        <Col md={3} className="filter-container">
           <div>
+            <h4>Category</h4>
             <ul className="filter">
               <li>
                 <Link

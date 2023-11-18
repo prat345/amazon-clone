@@ -118,24 +118,29 @@ export default function PlaceOrderPage() {
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
                     <Row className="align-items-center">
-                      <Col md={6}>
-                        <img
-                          src={item.image}
-                          alt={item.name}
-                          className="img-fluid rounded img-thumbnail"
-                        ></img>{" "}
+                      <Col xs={3} className="justify-content-start">
+                        <div className="thumbnail-container">
+                          <img
+                            src={item.image}
+                            alt={item.name}
+                            className="img-fluid rounded img-thumbnail"
+                          ></img>
+                        </div>
+                      </Col>
+                      <Col xs={3}>
                         <Link
-                          className="product-name"
+                          className="product-name my-auto"
                           to={`/product/${item.slug}`}
                         >
                           {item.name}
                         </Link>
                       </Col>
-                      <Col md={2}>
+
+                      <Col xs={1}>
                         <span>{item.quantity}</span>
                       </Col>
-                      <Col md={2}>${item.price}</Col>
-                      <Col md={2}>
+                      <Col xs={3}>${item.price}</Col>
+                      <Col xs={2} className="text-end">
                         <Link to="/cart">Edit</Link>
                       </Col>
                     </Row>

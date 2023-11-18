@@ -1,12 +1,20 @@
-body {
+/* body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+} */
+* {
+  font-family: "Amazon Ember", Arial, sans-serif;
 }
-
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 700 !important;
+}
 .site-container {
   min-height: 100vh;
 }
@@ -55,7 +63,7 @@ img {
   max-width: 100%;
 }
 .img-thumbnail {
-  max-width: 40% !important;
+  max-width: 30% !important;
 }
 .small-container {
   max-width: 600px !important;
@@ -90,4 +98,39 @@ img {
 }
 .text-bold {
   font-weight: bold;
+}
+ul.filter {
+  padding: 0;
+}
+ul.filter li {
+  list-style: none;
+}
+ul.filter li a {
+  text-decoration: none;
+  color: #007185;
+}
+ul.filter li a:hover,
+.product-name:hover {
+  text-decoration: underline;
+  color: #c26a05;
+}
+.product-name {
+  text-decoration: none;
+  color: #000000;
+}
+
+.banner-shipping {
+  height: 150px;
+  text-align: center;
+  background-color: rgb(255 181 96);
+  position: relative;
+  /* background-image: url("../public/images/free-shipping (2).png"); */
+}
+.banner-shipping > .center {
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  transform: translate(0, -50%);
+  color: #00404b;
+  width: 100%;
 }

@@ -12,6 +12,7 @@ import MessageBox from "../components/MessageBox";
 import Button from "react-bootstrap/Button";
 import Product from "../components/Product";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
+import BannerFreeShipping from "../components/BannerFreeShipping";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -132,11 +133,12 @@ export default function SearchPage() {
       <Helmet>
         <title>Search Products</title>
       </Helmet>
+      <BannerFreeShipping />
       <Row>
-        <Col md={3}>
-          <h3>Department</h3>
+        <Col md={3} className="border-right">
+          <h4>Category</h4>
           <div>
-            <ul>
+            <ul className="filter">
               <li>
                 <Link
                   className={"all" === category ? "text-bold" : ""}
@@ -158,8 +160,8 @@ export default function SearchPage() {
             </ul>
           </div>
           <div>
-            <h3>Price</h3>
-            <ul>
+            <h4>Price</h4>
+            <ul className="filter">
               <li>
                 <Link
                   className={"all" === price ? "text-bold" : ""}
@@ -181,8 +183,8 @@ export default function SearchPage() {
             </ul>
           </div>
           <div>
-            <h3>Avg. Customer Review</h3>
-            <ul>
+            <h4>Customer Review</h4>
+            <ul className="filter">
               {ratings.map((r) => (
                 <li key={r.name}>
                   <Link
@@ -213,6 +215,7 @@ export default function SearchPage() {
             <>
               <Row className="justify-content-between mb-3">
                 <Col md={6}>
+                  {/* show search filters on top */}
                   <div>
                     {countProducts === 0 ? "No" : countProducts} Results
                     {query !== "all" && " : " + query}
@@ -260,7 +263,7 @@ export default function SearchPage() {
               </Row>
 
               {/* pagination */}
-              <div>
+              {/* <div>
                 {[...Array(pages).keys()].map((x) => (
                   <LinkContainer
                     key={x + 1}
@@ -278,7 +281,7 @@ export default function SearchPage() {
                     </Button>
                   </LinkContainer>
                 ))}
-              </div>
+              </div> */}
             </>
           )}
         </Col>

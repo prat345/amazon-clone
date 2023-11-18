@@ -17,14 +17,14 @@ export default function SignUpPage() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [confirmPw, setConfirmPw] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
 
   const { state, dispatch: ctxDispatch } = useContext(Store);
   const { userInfo } = state;
 
   const submitHandler = async (e) => {
     e.preventDefault();
-    if (password !== confirmPw) {
+    if (password !== confirmPassword) {
       toast.error("Password does not match!");
       return;
     }
@@ -51,7 +51,7 @@ export default function SignUpPage() {
   }, [navigate, redirect, userInfo]);
 
   return (
-    <Container>
+    <Container className="small-container">
       <Helmet>
         <title>Sign In</title>
       </Helmet>
@@ -86,7 +86,7 @@ export default function SignUpPage() {
           <Form.Control
             type="password"
             required
-            onChange={(e) => setConfirmPw(e.target.value)}
+            onChange={(e) => setConfirmPassword(e.target.value)}
           />
         </Form.Group>
         <div className="mb-3">

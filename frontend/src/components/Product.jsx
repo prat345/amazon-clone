@@ -7,7 +7,7 @@ import { Store } from "../Store";
 import axios from "axios";
 import { toast } from "react-toastify";
 
-// product display in HomePage
+// show each product in HomePage
 export default function Product(props) {
   const { product } = props;
   const { state, dispatch: ctxDispatch } = useContext(Store); // import from Store
@@ -35,8 +35,8 @@ export default function Product(props) {
         <img src={product.image} alt={product.name} />
       </Link>
       <Card.Body>
-        <Link to={`product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
+        <Link className="product-name" to={`product/${product.slug}`}>
+          <Card.Text>{product.name}</Card.Text>
         </Link>
         <Rating
           rating={product.rating}

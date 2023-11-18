@@ -84,7 +84,7 @@ export default function OrderHistoryPage() {
                   <Button
                     type="Button"
                     variant="light"
-                    onClick={() => navigate(`/orders/${order._id}`)}
+                    onClick={() => navigate(`/order/${order._id}`)}
                   >
                     Details
                   </Button>

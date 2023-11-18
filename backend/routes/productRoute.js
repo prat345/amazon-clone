@@ -10,7 +10,7 @@ productRouter.get("/", async (req, res) => {
   res.send(products);
 });
 
-const PAGE_SIZE = 3;
+const PAGE_SIZE = Infinity;
 productRouter.get(
   "/search",
   expressAsyncHandler(async (req, res) => {
@@ -23,6 +23,7 @@ productRouter.get(
     const order = query.order || "";
     const searchQuery = query.query || "";
 
+    // create Filter obj for each field
     const queryFilter =
       searchQuery && searchQuery !== "all"
         ? {
@@ -64,6 +65,7 @@ productRouter.get(
         ? { createdAt: -1 }
         : { _id: -1 };
 
+    // use filter obj to search
     const products = await Product.find({
       ...queryFilter,
       ...categoryFilter,
@@ -74,12 +76,14 @@ productRouter.get(
       .skip(pageSize * (page - 1))
       .limit(pageSize);
 
+    // count number of results
     const countProducts = await Product.countDocuments({
       ...queryFilter,
       ...categoryFilter,
       ...priceFilter,
       ...ratingFilter,
     });
+
     res.send({
       products,
       countProducts,

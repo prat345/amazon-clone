@@ -61,7 +61,10 @@ export default function CartPage() {
                         className="img-fluid rounded img-thumbnail"
                       ></img>
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                      <Link className="my-auto" to={`/product/${item.slug}`}>
+                      <Link
+                        className="product-name my-auto"
+                        to={`/product/${item.slug}`}
+                      >
                         {item.name}
                       </Link>
                     </Col>

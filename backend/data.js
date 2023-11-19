@@ -87,7 +87,7 @@ const data = {
       slug: "women-golf-pants",
       category: "Pants",
       image: "/images/p6.jpg",
-      price: 120.75,
+      price: 20.75,
       countInStock: 5,
       brand: "Puma",
       rating: 4.3,

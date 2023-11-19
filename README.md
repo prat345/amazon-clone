@@ -1,6 +1,7 @@
 # Amazon Clone MERN-stack project
 
-The purpose of this project is to build a MERN-STACK e-commerce website which i choose to replicate from Amazon.com. This project is follows the tutorial of building MERN-stack website, more information can be found with the link below. Also i have made some adjustments to make the website more functional.
+The purpose of this project is to build a MERN-Stack e-commerce website which i choose to replicate from [Amazon](https://www.amazon.com/). The clone website has many main features similar to of Amazon which the user can interact for example sign in, sign up, update user, search & sort products, add to cart, make payment, track orders etc.
+This project follows the tutorial of building MERN-stack website, more information can be found with the link below. Also i have made some adjustments to make the website more realistic.
 
 ![amazona](/frontend/public/images/amazon-clone.png)
 

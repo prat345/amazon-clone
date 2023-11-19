@@ -27,7 +27,7 @@ app.get("/api/keys/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sandbox");
 });
 
-app.use("/api/seed", seedRouter); // http://localhost:5000/api/seed
+app.use("/api/seed", seedRouter); // http://localhost:5000/api/seed > create sample product in db
 app.use("/api/products", productRouter); // http://localhost:5000/api/products
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);

@@ -7,7 +7,7 @@ This project follows the tutorial of building MERN-stack website, more informati
 
 ### Demo App
 
-- [https://amazona.onrender.com](https://amazona.onrender.com)
+- [https://amazona.onrender.com](https://amazon-clone-d9pc.onrender.com/)
 
 ### Referrence
 

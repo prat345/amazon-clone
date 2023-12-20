@@ -80,7 +80,7 @@ export default function PlaceOrderPage() {
   }, [cart, navigate]);
 
   return (
-    <div>
+    <div className="container py-4">
       <CheckoutSteps step1 step2 step3 step4></CheckoutSteps>
       <Helmet>
         <title>Preview Order</title>
@@ -97,7 +97,9 @@ export default function PlaceOrderPage() {
                 {cart.shippingAddress.city},{cart.shippingAddress.postalCode},
                 {cart.shippingAddress.country}
               </Card.Text>
-              <Link to="/shipping">Edit</Link>
+              <Link to="/shipping" className="btn btn-light">
+                Edit
+              </Link>
             </Card.Body>
           </Card>
 
@@ -107,7 +109,9 @@ export default function PlaceOrderPage() {
               <Card.Text>
                 <strong>Method:</strong> {cart.paymentMethod}
               </Card.Text>
-              <Link to="/payment">Edit</Link>
+              <Link to="/payment" className="btn btn-light">
+                Edit
+              </Link>
             </Card.Body>
           </Card>
 
@@ -117,8 +121,8 @@ export default function PlaceOrderPage() {
               <ListGroup variant="flush">
                 {cart.cartItems.map((item) => (
                   <ListGroup.Item key={item._id}>
-                    <Row className="align-items-center">
-                      <Col xs={3} className="justify-content-start">
+                    <Row>
+                      <Col xs={4}>
                         <div className="thumbnail-container">
                           <img
                             src={item.image}
@@ -127,24 +131,59 @@ export default function PlaceOrderPage() {
                           ></img>
                         </div>
                       </Col>
-                      <Col xs={3}>
-                        <Link
-                          className="product-name my-auto"
-                          to={`/product/${item.slug}`}
-                        >
-                          {item.name}
-                        </Link>
-                      </Col>
-
-                      <Col xs={1}>
-                        <span>{item.quantity}</span>
-                      </Col>
-                      <Col xs={3}>${item.price}</Col>
-                      <Col xs={2} className="text-end">
-                        <Link to="/cart">Edit</Link>
+                      <Col xs={8}>
+                        <Row>
+                          <Col>
+                            <div>
+                              <Link
+                                className="product-name my-auto"
+                                to={`/product/${item.slug}`}
+                              >
+                                {item.name}
+                              </Link>
+                            </div>
+                            <div>${Math.ceil(item.price * item.quantity)}</div>
+                            <p>Quantity: {item.quantity}</p>
+                            <div>
+                              <Link to="/cart" className="btn btn-light">
+                                Edit
+                              </Link>
+                            </div>
+                          </Col>
+                        </Row>
                       </Col>
                     </Row>
                   </ListGroup.Item>
+
+                  // <ListGroup.Item key={item._id}>
+                  //   <Row className="align-items-center">
+                  //     <Col sm={3} className="justify-content-start">
+                  //       <div className="thumbnail-container">
+                  //         <img
+                  //           src={item.image}
+                  //           alt={item.name}
+                  //           className="img-fluid rounded img-thumbnail"
+                  //         ></img>
+                  //       </div>
+                  //     </Col>
+                  //     <Col sm={3}>
+                  //       <Link
+                  //         className="product-name my-auto"
+                  //         to={`/product/${item.slug}`}
+                  //       >
+                  //         {item.name}
+                  //       </Link>
+                  //     </Col>
+
+                  //     <Col sm={1}>
+                  //       <span>{item.quantity}</span>
+                  //     </Col>
+                  //     <Col sm={3}>${item.price}</Col>
+                  //     <Col sm={2} className="text-end">
+                  //       <Link to="/cart">Edit</Link>
+                  //     </Col>
+                  //   </Row>
+                  // </ListGroup.Item>
                 ))}
               </ListGroup>
             </Card.Body>

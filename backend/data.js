@@ -27,7 +27,8 @@ const data = {
       brand: "Nike",
       rating: 3.7,
       numReviews: 227,
-      description: "high quality shirt",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
     {
       // _id: "2",
@@ -40,7 +41,8 @@ const data = {
       brand: "Adidas",
       rating: 2.9,
       numReviews: 31,
-      description: "high quality product",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
     {
       // _id: "3",
@@ -53,7 +55,8 @@ const data = {
       brand: "Nike",
       rating: 4.7,
       numReviews: 141,
-      description: "high quality product",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
     {
       // _id: "4",
@@ -66,7 +69,8 @@ const data = {
       brand: "Puma",
       rating: 3.9,
       numReviews: 25,
-      description: "high quality product",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
     {
       // _id: "5",
@@ -79,7 +83,8 @@ const data = {
       brand: "Puma",
       rating: 4.4,
       numReviews: 281,
-      description: "high quality product",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
     {
       // _id: "6",
@@ -92,7 +97,8 @@ const data = {
       brand: "Puma",
       rating: 4.3,
       numReviews: 110,
-      description: "high quality product",
+      description:
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque diam orci, suscipit mattis lacinia a, fermentum nec dolor. Aliquam id aliquet turpis. ",
     },
   ],
 };

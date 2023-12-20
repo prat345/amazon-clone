@@ -47,7 +47,7 @@ export default function ShippingAddressPage() {
   };
 
   return (
-    <div>
+    <div className="container py-4">
       <Helmet>
         <title>Shipping Address</title>
       </Helmet>

@@ -30,7 +30,7 @@ export default function Product(props) {
     // navigate("/cart");
   };
   return (
-    <Card key={product.slug}>
+    <Card key={product.slug} className="h-100">
       <Link to={`product/${product.slug}`}>
         <div className="img-container text-center">
           <img src={product.image} alt={product.name} />

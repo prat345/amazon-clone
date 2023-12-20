@@ -133,7 +133,7 @@ export default function OrderPage() {
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div>
+    <div className="container py-2">
       <Helmet>
         <title>Order {orderId}</title>
       </Helmet>
@@ -176,14 +176,15 @@ export default function OrderPage() {
             </Card.Body>
           </Card>
 
+          {/* Items */}
           <Card className="mb-3">
             <Card.Body>
               <Card.Title>Items</Card.Title>
               <ListGroup variant="flush">
                 {order.orderItems?.map((item) => (
                   <ListGroup.Item key={item._id}>
-                    <Row className="align-items-center">
-                      <Col xs={4} className="justify-content-start">
+                    <Row>
+                      <Col xs={4}>
                         <div className="thumbnail-container">
                           <img
                             src={item.image}
@@ -192,15 +193,24 @@ export default function OrderPage() {
                           ></img>
                         </div>
                       </Col>
-                      <Col xs={4}>
-                        <Link
-                          className="product-name my-auto"
-                          to={`/product/${item.slug}`}
-                        >
-                          {item.name}
-                        </Link>
+                      <Col xs={8}>
+                        <Row>
+                          <Col>
+                            <div>
+                              <Link
+                                className="product-name my-auto"
+                                to={`/product/${item.slug}`}
+                              >
+                                {item.name}
+                              </Link>
+                            </div>
+                            <div>
+                              ${(item.price * item.quantity).toFixed(2)}
+                            </div>
+                            <div>Quantity: {item.quantity}</div>
+                          </Col>
+                        </Row>
                       </Col>
-                      <Col xs={4}>${item.price}</Col>
                     </Row>
                   </ListGroup.Item>
                 ))}
@@ -251,6 +261,7 @@ export default function OrderPage() {
                     ) : (
                       <div>
                         <PayPalButtons
+                          className="paypal-container"
                           createOrder={createOrder}
                           onApprove={onApprove}
                           onError={onError}

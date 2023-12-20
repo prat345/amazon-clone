@@ -63,7 +63,7 @@ export default function ProfilePage() {
   };
 
   return (
-    <div className="container small-container">
+    <div className="container small-container py-2">
       <Helmet>
         <title>User Profile</title>
       </Helmet>

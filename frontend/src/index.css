@@ -1,11 +1,6 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
+html {
+  scroll-behavior: smooth;
+}
 * {
   font-family: "Amazon Ember", Arial, sans-serif;
 }
@@ -15,10 +10,15 @@ h3,
 h4 {
   font-weight: 700 !important;
 }
+strong,
+tbody td {
+  color: #007185 !important;
+}
 .text-large {
   font-weight: 300 !important;
   font-size: 2rem !important;
 }
+
 .site-container {
   min-height: 100vh;
 }
@@ -67,7 +67,7 @@ span.product-price > span:first-child {
   border: none !important;
   transition: 0.2s;
 }
-.rating > * {
+.rating > span > i {
   color: #f0c040;
 }
 .rating > .num-reviews {
@@ -77,16 +77,22 @@ span.product-price > span:first-child {
 .img-large {
   max-width: 100%;
   max-height: 80vh;
+  padding: 10px;
 }
 .img-thumbnail {
-  /* max-width: 30% !important; */
-  max-height: 80px !important;
+  max-height: 150px !important;
   border: none !important;
+  padding: 0;
 }
 .thumbnail-container {
   text-align: center;
-  width: 100px;
+  /* width: 100px; */
   /* border: 1px solid silver; */
+}
+@media (max-width: 1023.5px) {
+  .img-thumbnail {
+    max-height: 100px !important;
+  }
 }
 
 .small-container {
@@ -144,22 +150,31 @@ ul.filter li a:hover,
 .product-name {
   text-decoration: none;
   color: #000000;
+  font-size: 20px;
 }
 
+/* BANNER */
 .banner-shipping {
-  height: 150px;
+  height: 60vh;
   text-align: center;
   background-color: rgb(255 181 96);
   position: relative;
-  /* background-image: url("../public/images/free-shipping (2).png"); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url("../public/images/41901902.jpg");
 }
 .banner-shipping > .center {
   position: absolute;
   top: 50%;
-  /* left: 50%; */
+  left: 10%;
   transform: translate(0, -50%);
-  color: #00404b;
-  width: 100%;
+
+  text-align: start;
+  color: #ffffff;
+}
+
+.paypal-container > div {
+  min-width: 0 !important;
 }
 
 /* large */
@@ -167,17 +182,11 @@ ul.filter li a:hover,
   * {
     font-size: 0.9rem;
   }
-  .thumbnail-container {
-    width: 70px;
-  }
 }
 /* medium */
 @media (max-width: 767.5px) {
   * {
     font-size: 0.8rem;
-  }
-  .thumbnail-container {
-    width: 70px;
   }
   .home-container {
     flex-direction: column-reverse;

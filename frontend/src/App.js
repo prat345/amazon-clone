@@ -26,6 +26,7 @@ import axios from "axios";
 import { getError } from "./utils.js";
 import SearchPage from "./pages/SearchPage.jsx";
 import NavbarSite from "./components/NavbarSite.jsx";
+import Footer from "./components/Footer.jsx";
 
 function App() {
   return (
@@ -36,26 +37,22 @@ function App() {
       </header>
 
       <main>
-        <Container className="mt-3">
-          <Routes>
-            <Route exact path="/" element={<SearchPage />} />
-            <Route path="/product/:slug" element={<ProductPage />} />
-            <Route path="/cart" element={<CartPage />} />
-            <Route path="/search" element={<SearchPage />} />
-            <Route path="/signin" element={<SignInPage />} />
-            <Route path="/signup" element={<SignUpPage />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/shipping" element={<ShippingAddressPage />} />
-            <Route path="/payment" element={<PaymentMethodPage />} />
-            <Route path="/placeorder" element={<PlaceOrderPage />} />
-            <Route path="/order/:id" element={<OrderPage />} />
-            <Route path="/orderhistory" element={<OrderHistoryPage />} />
-          </Routes>
-        </Container>
+        <Routes>
+          <Route exact path="/" element={<SearchPage />} />
+          <Route path="/product/:slug" element={<ProductPage />} />
+          <Route path="/cart" element={<CartPage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/signin" element={<SignInPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/shipping" element={<ShippingAddressPage />} />
+          <Route path="/payment" element={<PaymentMethodPage />} />
+          <Route path="/placeorder" element={<PlaceOrderPage />} />
+          <Route path="/order/:id" element={<OrderPage />} />
+          <Route path="/orderhistory" element={<OrderHistoryPage />} />
+        </Routes>
       </main>
-      <footer className="mt-5">
-        <div className="text-center">All rights reserved</div>
-      </footer>
+      <Footer />
     </BrowserRouter>
   );
 }

@@ -47,7 +47,7 @@ export default function OrderHistoryPage() {
   }, [userInfo]);
 
   return (
-    <div>
+    <div className="container py-4">
       <Helmet>
         <title>Order History</title>
       </Helmet>
@@ -57,8 +57,8 @@ export default function OrderHistoryPage() {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <div className="table-responsive">
-          <table className="table">
+        <div className="table-responsive ">
+          <table className="table table-hover">
             <thead>
               <tr>
                 <th>ID</th>

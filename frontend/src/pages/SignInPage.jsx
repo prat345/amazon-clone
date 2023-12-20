@@ -70,7 +70,10 @@ export default function SignInPage() {
           <Button type="submit">Sign In</Button>
         </div>
         <div className="mb-3">
-          New Customer? <Link to={`/signup?redirect=${redirect}`}>Sign Up</Link>
+          New Customer?{" "}
+          <Link className="a-link" to={`/signup?redirect=${redirect}`}>
+            Sign Up
+          </Link>
         </div>
       </Form>
     </Container>

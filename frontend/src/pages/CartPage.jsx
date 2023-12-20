@@ -39,7 +39,7 @@ export default function CartPage() {
     navigate("/signin?redirect=/shipping");
   };
   return (
-    <div>
+    <div className="container py-2">
       <Helmet>
         <title>Cart</title>
       </Helmet>
@@ -55,8 +55,8 @@ export default function CartPage() {
             <ListGroup>
               {cartItems.map((item) => (
                 <ListGroup.Item key={item._id}>
-                  <Row className="align-items-center">
-                    <Col xs={3} className="justify-content-start">
+                  <Row>
+                    <Col xs={4}>
                       <div className="thumbnail-container">
                         <img
                           src={item.image}
@@ -65,46 +65,49 @@ export default function CartPage() {
                         ></img>
                       </div>
                     </Col>
-                    <Col xs={2}>
-                      <Link
-                        className="product-name my-auto"
-                        to={`/product/${item.slug}`}
-                      >
-                        {item.name}
-                      </Link>
-                    </Col>
-
-                    <Col xs={3} className="text-center">
-                      <Button
-                        variant="light"
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity - 1)
-                        }
-                        disabled={item.quantity === 1}
-                      >
-                        <i className="fas fa-minus-circle"></i>
-                      </Button>{" "}
-                      <span>{item.quantity}</span>{" "}
-                      <Button
-                        variant="light"
-                        onClick={() =>
-                          updateCartHandler(item, item.quantity + 1)
-                        }
-                        disabled={item.quantity === item.countInStock}
-                      >
-                        <i className="fas fa-plus-circle"></i>
-                      </Button>{" "}
-                    </Col>
-                    <Col xs={2} className="text-center">
-                      ${item.price}
-                    </Col>
-                    <Col xs={2} className="text-center">
-                      <Button
-                        variant="light"
-                        onClick={() => removeItemHandler(item)}
-                      >
-                        <i className="fas fa-trash"></i>
-                      </Button>{" "}
+                    <Col xs={8}>
+                      <Row>
+                        <Col>
+                          <p>
+                            <Link
+                              className="product-name my-auto"
+                              to={`/product/${item.slug}`}
+                            >
+                              {item.name}
+                            </Link>
+                          </p>
+                          <p>${(item.price * item.quantity).toFixed(2)}</p>
+                        </Col>
+                      </Row>
+                      <Row>
+                        <Col>
+                          <Button
+                            variant="light"
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity - 1)
+                            }
+                            disabled={item.quantity === 1}
+                          >
+                            <i className="fas fa-minus-circle"></i>
+                          </Button>{" "}
+                          <span>{item.quantity}</span>{" "}
+                          <Button
+                            variant="light"
+                            onClick={() =>
+                              updateCartHandler(item, item.quantity + 1)
+                            }
+                            disabled={item.quantity === item.countInStock}
+                          >
+                            <i className="fas fa-plus-circle"></i>
+                          </Button>{" "}
+                          <Button
+                            variant="light"
+                            onClick={() => removeItemHandler(item)}
+                          >
+                            <i className="fas fa-trash"></i>
+                          </Button>{" "}
+                        </Col>
+                      </Row>
                     </Col>
                   </Row>
                 </ListGroup.Item>

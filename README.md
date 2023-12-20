@@ -21,6 +21,24 @@ This project follows the tutorial of building MERN-stack website, more informati
 - Node & Express: Web API, Body Parser, File Upload, JWT
 - MongoDB: Mongoose
 
+### Requirements
+
+- node@20.0.9
+- react@18.2.0
+- react-bootstrap@2.9.1
+- react-helmet-async@1.3.0
+- react-router-dom@6.18.0
+- react-toastify@9.1.3
+- express@4.18.2
+- express-async-handler@1.2.0
+- axios@1.6.1
+- @paypal/react-paypal-js@8.1.3
+- bootstrap@5.3.2
+- bcryptjs@2.4.3
+- dotenv@16.3.1
+- jsonwebtoken@9.0.2
+- mongoose@8.0.0
+
 ### Setup
 
 ```

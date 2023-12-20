@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
+import Container from "react-bootstrap/Row";
 import ListGroup from "react-bootstrap/ListGroup";
 import Rating from "../components/Rating";
 import Card from "react-bootstrap/Card";
@@ -33,10 +34,10 @@ function ProductDetail(props) {
   };
   return (
     <Row>
-      <Col md={6} className="text-center">
+      <Col md={4} className="text-center">
         <img className="img-large" src={product.image} alt={product.name}></img>
       </Col>
-      <Col md={3}>
+      <Col md={5} className="mb-3">
         <ListGroup variant="flush">
           <ListGroup.Item>
             <h1>{product.name}</h1>
@@ -47,8 +48,32 @@ function ProductDetail(props) {
               numReviews={product.numReviews}
             ></Rating>
           </ListGroup.Item>
-          <ListGroup.Item>${product.price}</ListGroup.Item>
-          <ListGroup.Item>Description: {product.description}</ListGroup.Item>
+          <ListGroup.Item>
+            <span className="product-price">
+              <span>$</span>
+              <span class="text-large">{product.price}</span>
+            </span>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <Container className="mt-2">
+              <Row className="mb-1">
+                <Col xs={4}>
+                  <strong>Brand</strong>
+                </Col>
+                <Col xs={8}>{product.brand}</Col>
+              </Row>
+              <Row className="mb-1">
+                <Col xs={4}>
+                  <strong>Category</strong>
+                </Col>
+                <Col xs={8}>{product.category}</Col>
+              </Row>
+            </Container>
+          </ListGroup.Item>
+          <ListGroup.Item>
+            <strong>About this item</strong>
+            <div>{product.description}</div>
+          </ListGroup.Item>
         </ListGroup>
       </Col>
       <Col md={3}>
@@ -58,7 +83,7 @@ function ProductDetail(props) {
               <ListGroup.Item>
                 <Row>
                   <Col>Price:</Col>
-                  <Col>{product.price}</Col>
+                  <Col>${product.price}</Col>
                 </Row>
               </ListGroup.Item>
               <ListGroup.Item>

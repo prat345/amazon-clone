@@ -51,7 +51,7 @@ nav.bg-dark {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100%;
+  width: 100vw;
   z-index: 999;
   min-height: 70px;
 }
@@ -71,8 +71,9 @@ nav .navbar-brand {
   justify-content: center;
 }
 img {
-  height: 100%;
-  max-height: 300px;
+  width: 100%;
+  max-height: 250px;
+  object-fit: contain;
 }
 .img-container {
   overflow-x: hidden;

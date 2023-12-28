@@ -15,7 +15,7 @@
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "index.js"
+      "destination": "https://amazon-clone-backend-chi.vercel.app/"
     }
   ]
 }

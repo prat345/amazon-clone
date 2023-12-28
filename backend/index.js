@@ -8,6 +8,7 @@ import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import cors from "cors";
+// const cors = require("cors");
 
 dotenv.config();
 
@@ -24,8 +25,8 @@ const app = express();
 
 app.use(
   cors({
-    origin: ["https://amazon-clone-frontend-flame.vercel.app/"],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: [process.env.FRONT_END_URL],
+    methods: ["POST", "GET", "PUT", "DELETE"],
     credentials: true,
   })
 );

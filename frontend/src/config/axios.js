@@ -3,7 +3,7 @@ import axios from "axios";
 
 // dotenv.config();
 
-// axios.defaults.baseURL = "amazon-clone-five-dusky.vercel.app";
+// axios.defaults.baseURL = "https://amazon-clone-backend-chi.vercel.app/";
 axios.defaults.baseURL = "http://localhost:5000";
 axios.defaults.withCredentials = true;
 

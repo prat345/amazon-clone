@@ -8,7 +8,6 @@ import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
 import cors from "cors";
-// const cors = require("cors");
 
 dotenv.config();
 

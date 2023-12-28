@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "proxy": "https://amazon-clone-frontend-flame.vercel.app/",
+  "proxy": "https://amazon-clone-backend-chi.vercel.app/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

@@ -9,7 +9,7 @@ import { Store } from "../Store";
 import ListGroup from "react-bootstrap/ListGroup";
 import Button from "react-bootstrap/Button";
 import LoadingBox from "../components/LoadingBox";
-import axios from "axios";
+import axios from "../config/axios";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
 

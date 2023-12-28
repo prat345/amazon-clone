@@ -3,7 +3,7 @@ import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { Store } from "../Store";
-import axios from "axios";
+import axios from "../config/axios";
 import { Helmet } from "react-helmet-async";
 import Col from "react-bootstrap/esm/Col";
 import Row from "react-bootstrap/esm/Row";

@@ -4,7 +4,7 @@ import Container from "react-bootstrap/esm/Container";
 import { Helmet } from "react-helmet-async";
 import { Link, redirect, useLocation, useNavigate } from "react-router-dom";
 import Form from "react-bootstrap/Form";
-import axios from "axios";
+import axios from "../config/axios";
 import { Store } from "../Store";
 import { toast } from "react-toastify";
 

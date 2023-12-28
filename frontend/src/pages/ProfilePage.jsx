@@ -3,7 +3,7 @@ import { Helmet } from "react-helmet-async";
 import { Store } from "../Store";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import axios from "axios";
+import axios from "../config/axios";
 import { toast } from "react-toastify";
 import { getError } from "../utils";
 

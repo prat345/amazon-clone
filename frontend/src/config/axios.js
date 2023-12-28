@@ -1,5 +1,9 @@
 import axios from "axios";
+import dotenv from "dotenv";
 
-axios.defaults.baseURL = "amazon-clone-five-dusky.vercel.app";
+dotenv.config();
+
+axios.defaults.baseURL = process.env.API_BASE_URL;
+axios.defaults.withCredentials = true;
 
 export default axios;

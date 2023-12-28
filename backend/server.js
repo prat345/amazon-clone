@@ -7,6 +7,7 @@ import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -20,6 +21,14 @@ mongoose
   });
 
 const app = express();
+
+app.use(
+  cors({
+    origin: ["https://amazon-clone-frontend-flame.vercel.app/"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to json

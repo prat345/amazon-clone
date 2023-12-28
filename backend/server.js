@@ -12,9 +12,7 @@ import cors from "cors";
 dotenv.config();
 
 mongoose
-  .connect(
-    "mongodb+srv://kopkap:kopkap123@cluster0.agjmc4n.mongodb.net/amazon?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONGODB_URI)
   .then(() => {
     console.log("Connected to Mongo");
   })

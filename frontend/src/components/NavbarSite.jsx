@@ -34,7 +34,7 @@ export default function NavbarSite() {
           <SearchBox />
           <Nav className="me-auto w-100 justify-content-end">
             <Link to="/cart" className="nav-link">
-              <i class="fa-solid fa-cart-shopping me-2"></i>
+              <i className="fa-solid fa-cart-shopping me-2"></i>
               Cart
               {cart.cartItems.length > 0 && (
                 <Badge pill bg="danger">

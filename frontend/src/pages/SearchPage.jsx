@@ -235,7 +235,7 @@ export default function SearchPage() {
                           onClick={() => navigate("/search")}
                           className="btn-clear"
                         >
-                          <i class="fa-regular fa-circle-xmark"></i>
+                          <i className="fa-regular fa-circle-xmark"></i>
                         </Button>
                       ) : null}
                     </div>

@@ -47,7 +47,7 @@ export default function Product(props) {
         <Card.Text>
           <span className="product-price">
             <span>$</span>
-            <span class="text-large">{product.price}</span>
+            <span className="text-large">{product.price}</span>
           </span>
         </Card.Text>
 

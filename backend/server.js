@@ -31,7 +31,7 @@ app.use(
 );
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // convert input form to json
+app.use(express.urlencoded({ extended: true })); // convert input form to Json
 
 app.get("/", (req, res) => {
   res.json("Hello...");

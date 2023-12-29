@@ -23,8 +23,8 @@ mongoose
 const app = express();
 
 // *** use build version(frontend) for production, use proxy, solve cors err
-const __dirname = path.resolve();
-app.use(express.static("build"));
+// const __dirname = path.resolve();
+// app.use(express.static("build"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to Json

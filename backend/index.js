@@ -22,6 +22,8 @@ mongoose
 
 const app = express();
 
+app.use(cors());
+
 // *** use build version(frontend) for production, use proxy, solve cors err
 // const __dirname = path.resolve();
 // app.use(express.static("build"));

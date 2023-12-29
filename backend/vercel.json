@@ -2,8 +2,8 @@
   "version": 2,
   "rewrites": [
     {
-      "source": "/(.*)",
-      "destination": "https://amazon-clone-backend-chi.vercel.app/"
+      "source": "/api/(.*)",
+      "destination": "api/"
     }
   ]
 }

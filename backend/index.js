@@ -7,7 +7,6 @@ import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
-import cors from "cors";
 
 dotenv.config();
 
@@ -21,18 +20,6 @@ mongoose
   });
 
 const app = express();
-
-// app.use(
-//   cors({
-//     origin: [process.env.FRONT_END_URL],
-//     methods: ["POST", "GET", "PUT", "DELETE"],
-//     credentials: true,
-//   })
-// );
-
-// *** use build version(frontend) for production, use proxy, solve cors err
-const __dirname = path.resolve();
-app.use(express.static("build"));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to Json
@@ -50,6 +37,9 @@ app.use("/api/products", productRouter); // http://localhost:5000/api/products
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
+// *** use build version(frontend) for production, use proxy, solve cors err
+const __dirname = path.resolve();
+app.use(express.static("build"));
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "/frontend/build/index.html"));
 });

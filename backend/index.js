@@ -22,7 +22,7 @@ mongoose
 const app = express();
 
 app.use(express.json());
-app.use(express.urlencoded({ extended: true })); // convert input form to Json
+app.use(express.urlencoded({ extended: true })); // convert input form to json
 
 app.get("/backend/api/keys/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sandbox");

@@ -21,6 +21,10 @@ mongoose
 
 const app = express();
 
+// *** use build version(frontend) for production, use proxy, solve cors err
+const __dirname = path.resolve();
+app.use(express.static(path.join("build")));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to Json
 
@@ -33,12 +37,9 @@ app.use("/api/products", productRouter); // http://localhost:5000/api/products
 app.use("/api/users", userRouter);
 app.use("/api/orders", orderRouter);
 
-// *** use build version(frontend) for production, use proxy, solve cors err
-const __dirname = path.resolve();
-app.use(express.static(path.join("build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build/index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/build/index.html"));
+// });
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });

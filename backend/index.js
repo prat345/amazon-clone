@@ -35,9 +35,9 @@ app.use("/api/orders", orderRouter);
 
 // *** use build version(frontend) for production, use proxy, solve cors err
 const __dirname = path.resolve();
-app.use(express.static(path.join("build")));
+app.use(express.static(path.join("frontend/build")));
 app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/build/index.html"));
+  res.sendFile(path.join(__dirname, "frontend/build/index.html"));
 });
 
 app.use((err, req, res, next) => {

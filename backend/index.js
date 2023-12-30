@@ -7,6 +7,7 @@ import seedRouter from "./routes/seedRoutes.js";
 import productRouter from "./routes/productRoute.js";
 import userRouter from "./routes/userRoutes.js";
 import orderRouter from "./routes/orderRoutes.js";
+import cors from "cors";
 
 dotenv.config();
 
@@ -21,24 +22,32 @@ mongoose
 
 const app = express();
 
+app.use(
+  cors({
+    origin: [process.env.FRONT_END_URL],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    credentials: true,
+  })
+);
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to json
 
-app.get("/backend/api/keys/paypal", (req, res) => {
+app.get("/api/keys/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sandbox");
 });
 
-app.use("/backend/api/seed", seedRouter); // http://localhost:5000/api/seed > create sample product in DB
-app.use("/backend/api/products", productRouter); // http://localhost:5000/api/products
-app.use("/backend/api/users", userRouter);
-app.use("/backend/api/orders", orderRouter);
+app.use("/api/seed", seedRouter); // http://localhost:5000/api/seed > create sample product in DB
+app.use("/api/products", productRouter); // http://localhost:5000/api/products
+app.use("/api/users", userRouter);
+app.use("/api/orders", orderRouter);
 
 // *** use build version(frontend) for production, use proxy, solve cors err
-const __dirname = path.resolve();
-app.use(express.static(path.join("frontend/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "frontend/build/index.html"));
-});
+// const __dirname = path.resolve();
+// app.use(express.static(path.join(__dirname, "/build")));
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(__dirname, "/build/index.html"));
+// });
 
 app.use((err, req, res, next) => {
   res.status(500).send({ message: err.message });

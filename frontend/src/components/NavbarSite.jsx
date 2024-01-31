@@ -33,11 +33,15 @@ export default function NavbarSite() {
         <Navbar.Collapse id="basic-navbar-nav">
           <SearchBox />
           <Nav className="me-auto w-100 justify-content-end">
-            <Link to="/cart" className="nav-link">
-              <i className="fa-solid fa-cart-shopping me-2"></i>
-              Cart
+            <Link to="/cart" className="nav-link relative">
+              <i className="fa-solid fa-cart-shopping text-xl"></i>
               {cart.cartItems.length > 0 && (
-                <Badge pill bg="danger">
+                <Badge
+                  pill
+                  bg="danger"
+                  className="absolute top-0 left-6"
+                  style={{ fontSize: "10px" }}
+                >
                   {/* {cart.cartItems.length} */}
                   {cart.cartItems.reduce(
                     (accumulator, current) => accumulator + current.quantity,
@@ -45,6 +49,7 @@ export default function NavbarSite() {
                   )}
                 </Badge>
               )}
+              <span className="ms-3">Cart</span>
             </Link>
             {userInfo ? (
               <NavDropdown title={userInfo.name}>

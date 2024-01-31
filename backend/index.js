@@ -24,7 +24,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: [process.env.FRONT_END_URL],
+    origin: [process.env.FRONT_END_URL, process.env.FRONT_END_URL2],
     methods: ["GET", "POST", "PUT", "DELETE"],
     credentials: true,
   })
@@ -32,6 +32,10 @@ app.use(
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true })); // convert input form to json
+
+app.get("/", (req, res) => {
+  res.send("Hello from backend");
+});
 
 app.get("/api/keys/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sandbox");

@@ -38,7 +38,7 @@ export default function Product(props) {
       </Link>
       <Card.Body>
         <Link className="product-name" to={`product/${product.slug}`}>
-          <Card.Text>{product.name}</Card.Text>
+          <Card.Text className="text-2xl">{product.name}</Card.Text>
         </Link>
         <Rating
           rating={product.rating}

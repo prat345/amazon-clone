@@ -8,7 +8,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  margin-top: 70px;
 }
 main {
   min-height: 70vh;
@@ -48,7 +47,7 @@ main {
 
 nav.bg-dark {
   background-color: #002235 !important;
-  position: absolute;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -63,6 +62,16 @@ nav .navbar-brand {
   color: #fff !important;
   transition: 0.2s;
 }
+
+/* searchBox */
+.validation-msg {
+  color: rgb(254, 19, 19);
+  position: absolute;
+  top: 35px;
+  left: 2rem;
+  font-size: 14px;
+}
+
 /* product page */
 .product-container {
   display: flex;
@@ -72,7 +81,8 @@ nav .navbar-brand {
 }
 img {
   height: 100%;
-  max-height: 300px;
+  max-height: 250px;
+  display: inline;
 }
 .img-container {
   overflow-x: hidden;
@@ -93,11 +103,31 @@ span.product-price > span:first-child {
   border: none !important;
   transition: 0.2s;
 }
+.btn-secondary {
+  padding: 7px 15px !important;
+  background-color: #08485f !important;
+  color: rgb(255, 255, 255) !important;
+  border: none !important;
+}
+.btn-secondary:hover {
+  background-color: #548595 !important;
+  color: rgb(237, 237, 237) !important;
+  border: none !important;
+  transition: 0.2s;
+}
+.btn-close {
+  padding: 3px !important;
+  border-radius: 0 !important;
+}
+.btn-close:hover {
+  background-color: #ffffff !important;
+  opacity: 0.3 !important;
+}
 .btn-clear {
   background: none !important;
   padding: 0 !important;
   margin-left: 1ch;
-  color: #007185 !important;
+  color: #797979 !important;
   border: none !important;
 }
 .btn-clear > i {
@@ -195,31 +225,32 @@ ul.filter li a:hover,
 .product-name {
   text-decoration: none;
   color: #000000;
-  font-size: 20px;
 }
 
-/* BANNER */
-.banner-shipping {
-  height: 60vh;
+/* HERO */
+.hero {
+  height: 90vh;
   text-align: center;
-  background-color: rgb(255 181 96);
+  /* background-color: rgb(255 181 96); */
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: linear-gradient(
-      rgba(142, 204, 249, 0.3),
+  /* background-image: linear-gradient(
+      rgba(142, 204, 249, 0.1),
       rgba(0, 0, 0, 0.45)
     ),
-    url("../public/images/41901902.jpg");
-  /* opacity: 0.7; */
+    url("../public/images/41901902.jpg"); */
+  background-image: linear-gradient(
+      rgba(142, 204, 249, 0.2),
+      rgba(0, 0, 0, 0.2)
+    ),
+    url("https://cdn.pixabay.com/photo/2018/03/12/22/15/fashion-3221102_1280.jpg");
+  background-position: 20% 0%;
 }
-.banner-shipping > .center {
+.hero > .center {
   position: relative;
   top: 50%;
-  left: 10%;
   transform: translate(0, -50%);
   text-align: start;
-  color: #ffffff;
-  width: 50vw;
 }
 #layer {
   height: 60vh;
@@ -251,6 +282,16 @@ footer .col > div:first-child {
 footer .col:hover {
   text-decoration: underline;
   transition: 0.2s;
+}
+
+/* BANNER */
+.banner {
+  background-image: linear-gradient(rgba(0, 33, 57, 0.5), rgba(0, 0, 0, 0.5)),
+    url("https://img.freepik.com/premium-photo/empty-shopping-cart-yellow-blue-background_70287-2038.jpg?w=2000");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0% 50%;
+  color: #fff;
 }
 
 /* large */

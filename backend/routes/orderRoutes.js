@@ -6,6 +6,11 @@ import Order from "../model/orderModel.js";
 
 const orderRouter = express.Router();
 
+orderRouter.get("/", async (req, res) => {
+  const orders = await Order.find();
+  res.send(orders);
+});
+
 orderRouter.post(
   "/",
   isAuth,

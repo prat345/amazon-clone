@@ -13,7 +13,8 @@ import MessageBox from "../components/MessageBox";
 import Button from "react-bootstrap/Button";
 import Product from "../components/Product";
 import LinkContainer from "react-router-bootstrap/LinkContainer";
-import BannerFreeShipping from "../components/BannerFreeShipping";
+import Hero from "../components/Hero";
+import Banner from "../components/Banner";
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -78,7 +79,7 @@ export default function SearchPage() {
   const { search } = useLocation();
   const sp = new URLSearchParams(search);
   const category = sp.get("category") || "all";
-  const query = sp.get("query") || "all";
+  const query = sp.get("query") || "all"; // from searchbox
   const price = sp.get("price") || "all";
   const rating = sp.get("rating") || "all";
   const order = sp.get("order") || "all";
@@ -134,8 +135,8 @@ export default function SearchPage() {
       <Helmet>
         <title>Search Products</title>
       </Helmet>
-      <BannerFreeShipping />
-      <Container className="mt-2">
+      <Hero />
+      <Container className="mt-2 mb-5" id={"product-gallery"}>
         <Row className="home-container">
           <Col md={3} className="filter-container">
             <div>
@@ -262,7 +263,13 @@ export default function SearchPage() {
 
                 <Row>
                   {products.map((product) => (
-                    <Col sm={6} lg={4} className="mb-3" key={product._id}>
+                    <Col
+                      xs={12}
+                      sm={6}
+                      lg={4}
+                      className="mb-3"
+                      key={product._id}
+                    >
                       <Product product={product}></Product>
                     </Col>
                   ))}
@@ -293,6 +300,7 @@ export default function SearchPage() {
           </Col>
         </Row>
       </Container>
+      <Banner />
     </div>
   );
 }

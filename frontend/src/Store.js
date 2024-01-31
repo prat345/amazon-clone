@@ -1,7 +1,7 @@
 import { createContext, useReducer } from "react";
 
 // React Context > share data to multiple components instead of sending props
-export const Store = createContext();
+export const Store = createContext(); // use in cart, order etc
 
 const initialState = {
   userInfo: localStorage.getItem("userInfo")
@@ -78,5 +78,5 @@ function reducer(state, action) {
 export function StoreProvider(props) {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = { state, dispatch };
-  return <Store.Provider value={value}>{props.children}</Store.Provider>;
+  return <Store.Provider value={value}>{props.children}</Store.Provider>; // use in index.js
 }
